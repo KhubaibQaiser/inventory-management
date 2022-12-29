@@ -18,6 +18,7 @@ const RootReducer = combineReducers({
 });
 
 const store = configureStore({
+  devTools: true,
   reducer: persistReducer(
     {
       key: 'root',

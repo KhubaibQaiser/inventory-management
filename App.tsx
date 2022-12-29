@@ -5,7 +5,7 @@ import {Provider as PaperProvider} from 'react-native-paper';
 import {Provider as StateProvider} from 'react-redux';
 import {NavigationContainer} from '@react-navigation/native';
 import defaultTheme from './src/app/styles/theme';
-import store from './src/data/store';
+import store from './src/data/store/store';
 
 const App = () => {
   return (
