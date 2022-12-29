@@ -1,4 +1,8 @@
-export interface iInventoryCategory {
+export interface iCategoriesState {
+  categories: iCategory[];
+}
+
+export interface iCategory {
   title: string;
   attributes: iAttribute[];
 }

@@ -6,11 +6,11 @@
 
     /* Completeness */
     "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */,
-    "baseUrl": "./src",
-    "paths": {
-      "@constants/*": ["./app/constants/*"],
-      "@screens/*": ["./app/screens/*"],
-      "@store/*": ["./data/store/*"],
-    }
+    // "baseUrl": "./src",
+    // "paths": {
+    //   "@constants/*": ["./app/constants/*"],
+    //   "@screens/*": ["./app/screens/*"],
+    //   "@store/*": ["./data/store/*"],
+    // }
   }
 }

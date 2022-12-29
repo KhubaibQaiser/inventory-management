@@ -1,19 +1,43 @@
-import React, {FC} from 'react';
+import React, {FC, useState, useEffect} from 'react';
 import {createDrawerNavigator} from '@react-navigation/drawer';
-import {NavigationContainer} from '@react-navigation/native';
+
 import {AppRoute} from './routes';
-import {HomeScreen} from '../../screens/Home';
+import {HomeScreen, CategoriesScreen} from '../../screens';
+import {iNavigation} from './types';
 
 const RootDrawer = createDrawerNavigator();
 
-const RootNavigation: FC = () => {
+const RootNavigator: FC = () => {
+  const [navState, setState] = useState<iNavigation[]>([
+    {
+      route: AppRoute.HOME,
+      Component: HomeScreen,
+    },
+  ]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setState(cur => [
+        ...cur,
+        {
+          route: AppRoute.CATEGORIES,
+          Component: CategoriesScreen,
+        } as iNavigation,
+      ]);
+    }, 5000);
+  }, []);
   return (
-    <NavigationContainer>
-      <RootDrawer.Navigator>
-        <RootDrawer.Screen name={AppRoute.HOME} component={HomeScreen} />
-      </RootDrawer.Navigator>
-    </NavigationContainer>
+    <RootDrawer.Navigator>
+      {navState.map(({route, Component}) => (
+        <RootDrawer.Screen
+          key={route}
+          name={route}
+          component={Component}
+          initialParams={{hello: 'world'}}
+        />
+      ))}
+    </RootDrawer.Navigator>
   );
 };
 
-export default RootNavigation;
+export default RootNavigator;

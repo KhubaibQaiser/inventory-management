@@ -1,7 +1,8 @@
-import React from 'react';
-import {View, Text} from 'react-native';
+import React, {FC} from 'react';
+import {View} from 'react-native';
+import {Text} from 'react-native-paper';
 
-const HomeScreen = () => {
+const HomeScreen: FC = () => {
   return (
     <View>
       <Text>Home screen</Text>
