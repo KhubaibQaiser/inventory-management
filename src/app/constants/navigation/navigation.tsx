@@ -4,8 +4,9 @@ import {createDrawerNavigator} from '@react-navigation/drawer';
 import {AppRoute} from './routes';
 import {HomeScreen, CategoriesScreen} from '../../screens';
 import {useCategoriesList} from '../../../data/store/modules';
+import {iRootNavigatorParamList} from './types';
 
-const RootDrawer = createDrawerNavigator();
+const RootDrawer = createDrawerNavigator<iRootNavigatorParamList>();
 
 const RootNavigator: FC = () => {
   const categories = useCategoriesList();
@@ -15,13 +16,14 @@ const RootNavigator: FC = () => {
       <RootDrawer.Screen
         name={AppRoute.CATEGORIES}
         component={CategoriesScreen}
+        initialParams={{categoryId: null}}
       />
-      {categories.map(({title}) => (
+      {categories.map(({title, id}) => (
         <RootDrawer.Screen
-          key={title}
+          key={id}
           name={title}
           component={HomeScreen}
-          initialParams={{category: title}}
+          initialParams={{categoryId: id}}
         />
       ))}
     </RootDrawer.Navigator>

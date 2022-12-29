@@ -1,7 +1,7 @@
 import {DefaultTheme as NavigationDefaultTheme} from '@react-navigation/native';
-import {MD3LightTheme} from 'react-native-paper';
+import {MD2LightTheme as RNPaperTheme} from 'react-native-paper';
 import merge from 'deepmerge';
 
-const defaultTheme = merge(MD3LightTheme, NavigationDefaultTheme);
+const defaultTheme = merge(RNPaperTheme, NavigationDefaultTheme);
 
 export default defaultTheme;

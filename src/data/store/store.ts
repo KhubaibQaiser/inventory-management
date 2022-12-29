@@ -11,20 +11,20 @@ import {
 } from 'redux-persist';
 import AsyncStorage from '@react-native-community/async-storage';
 
-import {CategoriesState} from './modules';
+import {CategoriesState, InventoriesState} from './modules';
 
 const RootReducer = combineReducers({
   [CategoriesState.name]: CategoriesState.reducer,
+  [InventoriesState.name]: InventoriesState.reducer,
 });
 
 const store = configureStore({
-  devTools: true,
   reducer: persistReducer(
     {
       key: 'root',
       version: 1,
       storage: AsyncStorage,
-      // blacklist: [CategoriesState.name],
+      // blacklist: [InventoriesState.name],
     },
     RootReducer,
   ),
