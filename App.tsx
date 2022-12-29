@@ -1,6 +1,6 @@
 import React from 'react';
 import 'react-native-gesture-handler';
-import RootNavigator from './src/app/constants/navigation';
+import RootNavigator from './src/app/constants/navigation/navigation';
 import {Provider as PaperProvider} from 'react-native-paper';
 import {Provider as StateProvider} from 'react-redux';
 import {NavigationContainer} from '@react-navigation/native';
