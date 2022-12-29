@@ -2,7 +2,7 @@ import React, {FC} from 'react';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 
 import {AppRoute} from './routes';
-import {HomeScreen, CategoriesScreen} from '../../screens';
+import {InventoriesScreen, CategoriesScreen} from '../../screens';
 import {useCategoriesList} from '../../../data/store/modules';
 import {iRootNavigatorParamList} from './types';
 
@@ -22,7 +22,7 @@ const RootNavigator: FC = () => {
         <RootDrawer.Screen
           key={id}
           name={title}
-          component={HomeScreen}
+          component={InventoriesScreen}
           initialParams={{categoryId: id}}
         />
       ))}

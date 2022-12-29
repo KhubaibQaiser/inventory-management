@@ -1,9 +1,11 @@
 import * as React from 'react';
 import {iInventoryUIAttributeProps} from './types';
 import {View, TouchableOpacity} from 'react-native';
-import {Text, TextInput, Switch} from 'react-native-paper';
+import {Switch, Text} from 'react-native-paper';
 import DatePicker from 'react-native-date-picker';
 import {styles} from './styles';
+import {Input} from '../../../../components';
+import {globalStyles} from '../../../../styles/global.styles';
 
 const InventoryAttribute: React.VFC<iInventoryUIAttributeProps> = ({
   attribute,
@@ -53,26 +55,37 @@ const InventoryAttribute: React.VFC<iInventoryUIAttributeProps> = ({
     switch (attribute.type) {
       case 'TEXT':
         return (
-          <TextInput
+          <Input
+            label={attribute.title}
             value={value as string}
             onChangeText={handleTextInputChange}
           />
         );
       case 'BOOLEAN':
         return (
-          <Switch
-            value={value as boolean}
-            onValueChange={handleBooleanInputChange}
-          />
+          <View
+            style={[
+              globalStyles.row,
+              globalStyles.justifySpaceBetween,
+              globalStyles.itemsCenter,
+            ]}>
+            <Text style={[globalStyles.mr8, globalStyles.labelText]}>
+              {attribute.title}
+            </Text>
+            <Switch
+              value={value as boolean}
+              onValueChange={handleBooleanInputChange}
+            />
+          </View>
         );
       case 'DATE':
         const date = value ? new Date(value as string) : new Date();
         return (
           <View>
             <TouchableOpacity onPress={showDatepicker}>
-              <TextInput
+              <Input
+                label={attribute.title}
                 value={value as string}
-                placeholder="Pick date"
                 pointerEvents="none"
                 editable={false}
               />
@@ -81,6 +94,7 @@ const InventoryAttribute: React.VFC<iInventoryUIAttributeProps> = ({
               modal
               open={datePickerVisible}
               date={date}
+              mode="date"
               onConfirm={handleDateChange}
               onCancel={closeDatepicker}
             />
@@ -88,7 +102,8 @@ const InventoryAttribute: React.VFC<iInventoryUIAttributeProps> = ({
         );
       case 'NUMBER':
         return (
-          <TextInput
+          <Input
+            label={attribute.title}
             value={value ? value.toString() : undefined}
             keyboardType="number-pad"
             onChangeText={handleNumberInputChange}
@@ -108,11 +123,8 @@ const InventoryAttribute: React.VFC<iInventoryUIAttributeProps> = ({
   ]);
 
   return (
-    <View style={styles.container}>
-      <Text variant="bodyMedium" style={styles.label}>
-        {attribute.title}
-      </Text>
-      <View style={styles.value}>{attributeValueComponent}</View>
+    <View style={[styles.value, globalStyles.mb8]}>
+      {attributeValueComponent}
     </View>
   );
 };

@@ -1,19 +1,18 @@
-import React, {VFC} from 'react';
-import {ScrollView} from 'react-native';
+import * as React from 'react';
 import {useRoute} from '@react-navigation/native';
 import {
   useCategoryById,
   useInventoriesByCategoryId,
   useInventoriesActions,
 } from '../../../data/store/modules';
-import {InventoryComponent, iInventoryChangeHandler} from './components';
-import {AddButton, Container} from '../../components';
+import {FlatList} from 'react-native';
+import {iInventoryChangeHandler} from './components';
 
-const HomeScreen: VFC = () => {
+const useInventoriesState = () => {
   const {params} = useRoute();
   const category = useCategoryById(params?.categoryId);
   const inventories = useInventoriesByCategoryId(category?.id);
-  console.log({category, inventories});
+  const listRef = React.useRef<FlatList>(null);
 
   const {addInventory, changeInventory, removeInventory} =
     useInventoriesActions();
@@ -23,6 +22,9 @@ const HomeScreen: VFC = () => {
       return;
     }
     addInventory({categoryId: category.id});
+    setTimeout(() => {
+      listRef.current?.scrollToEnd();
+    }, 0);
   }, [category, addInventory]);
 
   const onChangeInventory = React.useCallback(
@@ -43,22 +45,14 @@ const HomeScreen: VFC = () => {
     [category, removeInventory],
   );
 
-  return (
-    <Container>
-      <ScrollView>
-        {inventories.map((inventory, index) => (
-          <InventoryComponent
-            key={inventory.id}
-            category={category!}
-            inventory={inventory}
-            onChange={onChangeInventory(index)}
-            onRemove={onRemoveInventory(index)}
-          />
-        ))}
-      </ScrollView>
-      <AddButton onPress={onAddInventory} />
-    </Container>
-  );
+  return {
+    category,
+    inventories,
+    listRef,
+    onAddInventory,
+    onChangeInventory,
+    onRemoveInventory,
+  };
 };
 
-export default HomeScreen;
+export default useInventoriesState;

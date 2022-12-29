@@ -1,18 +1,20 @@
 import {StyleSheet} from 'react-native';
+import {MD2Colors} from 'react-native-paper';
 
 export const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 8,
-  },
   title: {
     flex: 0.7,
-    marginRight: 8,
   },
   type: {
     flex: 0.3,
-    marginRight: 8,
+    marginTop: 4,
+    height: '92%',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-  action: {},
+  typeText: {
+    fontSize: 16,
+    color: MD2Colors.blue700,
+  },
 });

@@ -1,11 +1,12 @@
 import * as React from 'react';
-import {View} from 'react-native';
-import {TextInput, Button} from 'react-native-paper';
+import {Button, Card} from 'react-native-paper';
 import {
   iInventoryComponentProp,
   iInventoryAttributeChangeHandler,
 } from './types';
 import InventoryAttribute from './InventoryAttribute';
+import {Input} from '../../../../components';
+import {globalStyles} from '../../../../styles/global.styles';
 
 const Inventory: React.VFC<iInventoryComponentProp> = ({
   category,
@@ -32,8 +33,13 @@ const Inventory: React.VFC<iInventoryComponentProp> = ({
   );
 
   return (
-    <View>
-      <TextInput value={inventory.title} onChangeText={handleTitleChange} />
+    <Card style={[globalStyles.mb16, globalStyles.cardContainer]}>
+      <Input
+        label={'Title'}
+        value={inventory.title}
+        onChangeText={handleTitleChange}
+        style={globalStyles.mb8}
+      />
       {category.attributes.map(attr => (
         <InventoryAttribute
           key={attr.id}
@@ -42,10 +48,14 @@ const Inventory: React.VFC<iInventoryComponentProp> = ({
           onChange={handleAttributeChange}
         />
       ))}
-      <Button icon="delete" mode="contained" onPress={onRemove}>
+      <Button
+        icon="delete"
+        mode="contained"
+        style={globalStyles.mt8}
+        onPress={onRemove}>
         Remove
       </Button>
-    </View>
+    </Card>
   );
 };
 

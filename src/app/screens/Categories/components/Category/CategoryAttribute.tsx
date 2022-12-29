@@ -1,14 +1,16 @@
 import * as React from 'react';
 import {iCategoryAttributeProps} from './types';
-import {View} from 'react-native';
-import {TextInput, IconButton, Button} from 'react-native-paper';
+import {View, TouchableOpacity} from 'react-native';
+import {IconButton, Text} from 'react-native-paper';
 import {AttributeEnum} from '../../../../../data/store/modules';
 import {styles} from './styles';
 import {
   CategoryAttributeMenu,
   useCategoryAttributeMenuState,
+  Input,
 } from '../../../../components';
 import {iMenuItemSelectHandler} from '../../../../components/CategoryAttributeMenu/types';
+import {globalStyles} from '../../../../styles/global.styles';
 
 const CategoryAttribute: React.VFC<iCategoryAttributeProps> = ({
   attribute,
@@ -32,28 +34,26 @@ const CategoryAttribute: React.VFC<iCategoryAttributeProps> = ({
   );
 
   return (
-    <View style={styles.container}>
-      <TextInput
+    <View
+      style={[globalStyles.row, globalStyles.itemsCenter, globalStyles.mb8]}>
+      <Input
+        label="Field"
         value={attribute.title}
         onChangeText={handleTitleChange}
-        style={styles.title}
+        style={[styles.title, globalStyles.mr8]}
       />
       <CategoryAttributeMenu
         visible={visible}
         anchor={
-          <Button onPress={openMenu} style={styles.action}>
-            {AttributeEnum[attribute.type]}
-          </Button>
+          <TouchableOpacity onPress={openMenu} style={styles.type}>
+            <Text style={styles.typeText}>{AttributeEnum[attribute.type]}</Text>
+          </TouchableOpacity>
         }
         onDismiss={closeMenu}
         onSelect={handleTypeChange}
-        style={styles.type}
+        style={[styles.type, globalStyles.mr8]}
       />
-      <IconButton
-        icon="delete"
-        onPress={() => onRemove(attribute)}
-        style={styles.action}
-      />
+      <IconButton icon="delete" onPress={() => onRemove(attribute)} />
     </View>
   );
 };
