@@ -3,12 +3,40 @@ export interface iCategoriesState {
 }
 
 export interface iCategory {
+  id: string;
   title: string;
   attributes: iAttribute[];
 }
 
-export type AttributeType = 'date' | 'text' | 'checkbox' | 'number';
+export enum AttributeEnum {
+  'DATE' = 'Date',
+  'TEXT' = 'Text',
+  'NUMBER' = 'Number',
+  'BOOLEAN' = 'Boolean',
+}
+export type AttributeType = keyof typeof AttributeEnum;
 export interface iAttribute {
+  id: string;
+  title: string;
   type: AttributeType;
-  value: string | number | boolean;
+}
+export type iAttributePayload = Omit<iAttribute, 'id'>;
+
+// ACTION PAYLOADS
+export interface iUpdateCategoryPayload {
+  category: iCategory;
+  index: number;
+}
+
+export interface iRemoveCategoryPayload {
+  category: iCategory;
+}
+
+export interface iAddAttributePayload {
+  categoryIndex: number;
+}
+
+export interface iRemoveAttributePayload {
+  categoryIndex: number;
+  attribute: iAttribute;
 }

@@ -1,4 +1,4 @@
 export enum AppRoute {
-  'HOME' = 'Home',
+  'DASHBOARD' = 'Dashboard',
   'CATEGORIES' = 'Categories',
 }

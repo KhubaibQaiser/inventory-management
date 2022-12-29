@@ -23,6 +23,7 @@ const store = configureStore({
       key: 'root',
       version: 1,
       storage: AsyncStorage,
+      // blacklist: [CategoriesState.name],
     },
     RootReducer,
   ),

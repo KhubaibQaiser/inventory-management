@@ -10,8 +10,8 @@ const RootDrawer = createDrawerNavigator();
 const RootNavigator: FC = () => {
   const [navState, setState] = useState<iNavigation[]>([
     {
-      route: AppRoute.HOME,
-      Component: HomeScreen,
+      route: AppRoute.CATEGORIES,
+      Component: CategoriesScreen,
     },
   ]);
 
@@ -20,8 +20,8 @@ const RootNavigator: FC = () => {
       setState(cur => [
         ...cur,
         {
-          route: AppRoute.CATEGORIES,
-          Component: CategoriesScreen,
+          route: AppRoute.DASHBOARD,
+          Component: HomeScreen,
         } as iNavigation,
       ]);
     }, 5000);
@@ -29,12 +29,7 @@ const RootNavigator: FC = () => {
   return (
     <RootDrawer.Navigator>
       {navState.map(({route, Component}) => (
-        <RootDrawer.Screen
-          key={route}
-          name={route}
-          component={Component}
-          initialParams={{hello: 'world'}}
-        />
+        <RootDrawer.Screen key={route} name={route} component={Component} />
       ))}
     </RootDrawer.Navigator>
   );
