@@ -73,12 +73,14 @@ const Category: React.VFC<iCategoryProps> = ({
           />
         );
       })}
-      <Button
-        mode="contained"
-        onPress={handleAddField}
-        style={[globalStyles.flex1, globalStyles.mt8]}>
-        Add New Field
-      </Button>
+      <View>
+        <Button
+          mode="contained"
+          onPress={handleAddField}
+          style={[globalStyles.flex1, globalStyles.mt8]}>
+          Add New Field
+        </Button>
+      </View>
     </Card>
   );
 };

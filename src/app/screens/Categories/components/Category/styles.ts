@@ -14,7 +14,8 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   typeText: {
-    fontSize: 16,
-    color: MD2Colors.blue700,
+    fontSize: 14,
+    color: MD2Colors.blue600,
+    fontWeight: '400',
   },
 });

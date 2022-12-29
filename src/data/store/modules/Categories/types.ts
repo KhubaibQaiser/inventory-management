@@ -5,6 +5,7 @@ export interface iCategoriesState {
 export interface iCategory {
   id: string;
   title: string;
+  titleAttribute: string;
   attributes: iAttribute[];
 }
 

@@ -20,7 +20,8 @@ export const CategoriesState = createSlice({
     addCategory(state) {
       state.categories.push({
         title: 'Category',
-        attributes: [],
+        titleAttribute: 'Field',
+        attributes: [{id: generateUuid(), title: 'Field', type: 'TEXT'}],
         id: generateUuid(),
       });
     },
