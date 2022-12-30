@@ -67,9 +67,13 @@ Make changes in the code, save and see them reflected on your simulator/emulator
 
 ## TODOs
 
-There are some user stories that still need to be implemented, like:
+#### User Stories
 
 - Pick one attribute as the title.
 - Render all machines group by their category on one screen.
 - Make design responsive to support mobile phone and tablet.
 - There is a lot fo room for user interface improvement.
+
+#### Technical Debts
+
+- Make routes typed. So that we can have strongly typed query params and navigation.
