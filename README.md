@@ -6,24 +6,23 @@ The company Construction Machine Management Inc. manages a fleet of diverse buil
 
 ## User Stories
 
-1. As a staff member I want to have different machine types (bull dozers, cranes, chainsaws, ...).
-2. As a staff member I would like to specify which attributes the machine type has once (weight, power, manufacturing date, ...).
-3. As a staff member I want that attributes can be date, text, checkbox or number
-4. As a staff member I want to be able to update the attributes.
-5. As a staff member I want to be able to remove attributes that are no longer required
-6. As a staff member I want that all machines of one type share attributes (all cranes have a model,
-   weight, manufacture date as well as a maximum lift weight for example)
-7. As a staff member I want to pick one of the attributes as a title attribute for the machines of one type (For eg. model).
-8. As a staff member I want to set a title for a machine type (Chainsaw, Bulldozer, ...)
-9. As a staff member I want to be able to add new machine types as well as to edit or delete existing ones at any time
-10. As a staff member I want to have many machines of each machine type ( for example 6 chainsaws from different brands that have different characteristics)
-11. As a staff member, I want to be able to filter by machine type (See all chain saws, all bull dozers, ...).
-12. As a staff member, I want to see the filters in a drawer.
-13. As a staff member I want to see all machines grouped by their type on one screen.
-14. As a staff member I want to be able to add new machines as well as to edit or delete existing ones at any time.
-15. As a staff member I want that everything is saved even after page reload.
-16. As a staff member I want to use the app on my mobile phone or tablet.
-17. As a staff member I want that to see a beautiful user interface.
+1. Can have different machine types (bull dozers, cranes, chainsaws, ...).
+2. Can specify which attributes the machine type has once (weight, power, manufacturing date, ...).
+3. Can define attributes which can be date, text, checkbox or number.
+4. Can be able to update the attributes.
+5. Can be able to remove attributes that are no longer required
+6. Can create all machines of one type share attributes (all cranes have a model, weight, manufacture date as well as a maximum lift weight for example)
+7. Can pick one of the attributes as a title attribute for the machines of one type (For eg. model).
+8. Can set a title for a machine type (Chainsaw, Bulldozer, ...)
+9. Can be able to add new machine types as well as to edit or delete existing ones at any time
+10. Can have many machines of each machine type ( for example 6 chainsaws from different brands that have different characteristics)
+11. Can be able to filter by machine type (See all chain saws, all bull dozers, ...).
+12. Can see the filters in a drawer.
+13. Can see all machines grouped by their type on one screen.
+14. Can be able to add new machines as well as to edit or delete existing ones at any time.
+15. All changes are saved even after page reload.
+16. Can use the app on my mobile phone or tablet.
+17. Have a beautiful user interface.
 
 ## Getting Started
 
