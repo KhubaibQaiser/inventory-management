@@ -1,10 +1,14 @@
 import {FC} from 'react';
+import {AppRoute} from './routes';
 
 export interface iNavigation {
   route: string;
   Component: FC;
 }
 
+export type RouteParams = {categoryId: string};
+
 export type iRootNavigatorParamList = {
-  [route: string]: {categoryId: string | null};
+  [AppRoute.CATEGORIES]: undefined;
+  [AppRoute.INVENTORIES]: RouteParams;
 };

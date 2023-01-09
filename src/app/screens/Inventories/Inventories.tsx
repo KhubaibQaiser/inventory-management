@@ -5,10 +5,11 @@ import {InventoryComponent} from './components';
 import {AddButton, Container, EmptyListMessage} from '../../components';
 import useInventoriesState from './useInventoriesState';
 import {globalStyles} from '../../styles/global.styles';
+import {iInventoriesScreenProps} from './types';
 
-const InventoriesScreen: React.VFC = () => {
+const InventoriesScreen: React.VFC<iInventoriesScreenProps> = props => {
   const {categoryId, inventoryIds, listRef, onAddInventory} =
-    useInventoriesState();
+    useInventoriesState(props);
 
   const renderItem: ListRenderItem<iInventory['id']> = React.useCallback(
     ({item, index}) => {

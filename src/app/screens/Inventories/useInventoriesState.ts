@@ -1,14 +1,13 @@
 import * as React from 'react';
-import {useRoute} from '@react-navigation/native';
 import {
   useInventoriesActions,
   useInventoriesIdsListByCategoryId,
 } from '../../../data/store/modules';
 import {FlatList} from 'react-native';
+import {iUseInventoriesStateParams} from './types';
 
-const useInventoriesState = () => {
-  const {params} = useRoute();
-  const categoryId = params?.categoryId as string;
+const useInventoriesState = ({route}: iUseInventoriesStateParams) => {
+  const categoryId = route.params.categoryId;
   const inventoryIds = useInventoriesIdsListByCategoryId(categoryId);
   const listRef = React.useRef<FlatList>(null);
 

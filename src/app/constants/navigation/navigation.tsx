@@ -12,16 +12,15 @@ const RootNavigator: FC = () => {
   const categories = useCategoriesRoutes();
 
   return (
-    <RootDrawer.Navigator>
+    <RootDrawer.Navigator initialRouteName={AppRoute.CATEGORIES}>
       <RootDrawer.Screen
         name={AppRoute.CATEGORIES}
         component={CategoriesScreen}
-        initialParams={{categoryId: null}}
       />
       {categories.map(({title, id}) => (
         <RootDrawer.Screen
           key={id}
-          name={title}
+          name={title as AppRoute.INVENTORIES}
           component={InventoriesScreen}
           initialParams={{categoryId: id}}
         />
