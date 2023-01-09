@@ -1,10 +1,10 @@
 import * as React from 'react';
-import {iUseCategoryAttributesParams} from './types';
 import {
-  useCategoryAttributes,
-  useCategoriesActions,
-} from '../../../../../../../data/store/modules';
-import {iAttributeChangeHandler, iRemoveAttributeHandler} from '../../types';
+  iUseCategoryAttributesParams,
+  iAttributeChangeHandler,
+  iRemoveAttributeHandler,
+} from './types';
+import {useCategoryAttributes, useCategoriesActions} from '@store/modules';
 
 const useCategoryAttributesState = ({
   categoryId,

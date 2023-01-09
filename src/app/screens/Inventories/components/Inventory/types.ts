@@ -1,4 +1,4 @@
-import {iCategory, iInventory} from '../../../../../data/store/modules';
+import {iCategory, iInventory} from '@store/modules';
 
 export interface iInventoryComponentProp {
   categoryId: iCategory['id'];

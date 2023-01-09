@@ -2,9 +2,9 @@ import * as React from 'react';
 import {Menu} from 'react-native-paper';
 import {iCategoryAttributeMenuProps} from './types';
 import {AttributeTypeOptions} from './constants';
-import {AttributeType} from '../../../data/store/modules';
+import {AttributeType} from '@store/modules';
 import {View} from 'react-native';
-import {globalStyles} from '../../styles/global.styles';
+import {globalStyles} from '@styles/global.styles';
 
 const CategoryAttributeMenu: React.VFC<iCategoryAttributeMenuProps> = ({
   anchor,

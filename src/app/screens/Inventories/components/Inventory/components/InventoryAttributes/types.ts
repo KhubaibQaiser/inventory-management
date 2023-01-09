@@ -3,7 +3,7 @@ import {
   InventoryAttributeValueType,
   iCategory,
   iInventory,
-} from '../../../../../../../data/store/modules';
+} from '@store/modules';
 
 export interface iInventoryAttributesProps {
   categoryId: iCategory['id'];

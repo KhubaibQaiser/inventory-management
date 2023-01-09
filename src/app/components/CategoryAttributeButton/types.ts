@@ -1,4 +1,4 @@
-import {AttributeType} from '../../../data/store/modules';
+import {AttributeType} from '@store/modules';
 import {StyleProp, ViewStyle} from 'react-native';
 
 export interface iCategoryAttributeButtonProps {

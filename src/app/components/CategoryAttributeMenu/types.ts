@@ -1,4 +1,4 @@
-import {AttributeType, AttributeEnum} from '../../../data/store/modules';
+import {AttributeType, AttributeEnum} from '@store/modules';
 import {MenuProps} from 'react-native-paper';
 import {StyleProp, ViewStyle} from 'react-native';
 

@@ -3,9 +3,8 @@ import {iInventoryUIAttributeProps} from './types';
 import {View, TouchableOpacity} from 'react-native';
 import {Switch, Text} from 'react-native-paper';
 import DatePicker from 'react-native-date-picker';
-import {styles} from '../../styles';
-import {Input} from '../../../../../../components';
-import {globalStyles} from '../../../../../../styles/global.styles';
+import {Input} from '@components/index';
+import {globalStyles} from '@styles/global.styles';
 
 const InventoryAttribute: React.VFC<iInventoryUIAttributeProps> = ({
   attribute,
@@ -123,7 +122,7 @@ const InventoryAttribute: React.VFC<iInventoryUIAttributeProps> = ({
   ]);
 
   return (
-    <View style={[styles.value, globalStyles.mb8]}>
+    <View style={[globalStyles.flex1, globalStyles.mb8]}>
       {attributeValueComponent}
     </View>
   );

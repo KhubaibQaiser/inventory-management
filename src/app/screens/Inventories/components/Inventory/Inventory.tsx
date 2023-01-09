@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Button, Card} from 'react-native-paper';
 import {iInventoryComponentProp} from './types';
-import {globalStyles} from '../../../../styles/global.styles';
+import {globalStyles} from '@styles/global.styles';
 import {InventoryTitle, InventoryAttributes} from './components';
 import useInventoryState from './useInventoryState';
 

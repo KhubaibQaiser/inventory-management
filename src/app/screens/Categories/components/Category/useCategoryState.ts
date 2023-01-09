@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {iUseCategoryParams} from './types';
-import {useCategoriesActions} from '../../../../../data/store/modules';
+import {useCategoriesActions} from '@store/modules';
 
 const useCategoryState = ({categoryIndex}: iUseCategoryParams) => {
   const {addAttribute, removeCategory} = useCategoriesActions();

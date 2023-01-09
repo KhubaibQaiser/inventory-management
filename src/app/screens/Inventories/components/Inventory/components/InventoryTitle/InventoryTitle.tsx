@@ -1,8 +1,8 @@
 import * as React from 'react';
 import {Text} from 'react-native-paper';
-import {globalStyles} from '../../../../../../styles/global.styles';
+import {globalStyles} from '@styles/global.styles';
 import {iInventoryTitleProps} from './types';
-import {useInventoryTitle} from '../../../../../../../data/store/modules';
+import {useInventoryTitle} from '@store/modules';
 
 const InventoryTitle: React.VFC<iInventoryTitleProps> = ({
   categoryId,

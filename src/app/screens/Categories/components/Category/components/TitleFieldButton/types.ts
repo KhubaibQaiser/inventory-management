@@ -1,4 +1,4 @@
-import {iCategory} from '../../../../../../../data/store/modules';
+import {iCategory} from '@store/modules';
 
 export interface iTitleFieldButtonProps {
   categoryId: iCategory['id'];

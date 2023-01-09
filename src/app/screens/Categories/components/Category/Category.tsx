@@ -2,7 +2,7 @@ import * as React from 'react';
 import {Card, Button} from 'react-native-paper';
 import {iCategoryProps} from './types';
 import {View} from 'react-native';
-import {globalStyles} from '../../../../styles/global.styles';
+import {globalStyles} from '@styles/global.styles';
 import {
   CategoryTitle,
   CategoryAttributes,

@@ -6,11 +6,25 @@
 
     /* Completeness */
     "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */,
-    // "baseUrl": "./src",
-    // "paths": {
-    //   "@constants/*": ["./app/constants/*"],
-    //   "@screens/*": ["./app/screens/*"],
-    //   "@store/*": ["./data/store/*"],
-    // }
-  }
+    "baseUrl": "./src",
+    "paths": {
+      "@constants/*": ["./app/constants/*"],
+      "@components/*": ["./app/components/*"],
+      "@screens/*": ["./app/screens/*"],
+      "@store/*": ["./data/store/*"],
+      "@styles/*": ["./app/styles/*"]
+    },
+  },
+  "include": [
+    "next-env.d.ts",
+    "additional.d.ts",
+    "src/**/*.ts",
+    "src/**/*.js",
+    "src/**/*.tsx",
+    "./App.tsx",
+    "./src/**/*",
+    "src/**/*",
+    "src/**/*.*"
+  ],
+  "exclude": ["node_modules"]
 }

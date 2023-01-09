@@ -9,8 +9,7 @@ import {
   iCategory,
   iSetTitleAttributeIdPayload,
 } from './types';
-import useActions from '../../utils/useActions';
-import {generateUuid} from '../../utils/string.utils';
+import {useActions, generateUuid} from '@store/utils';
 
 const initialCategoriesState: iCategoriesState = {
   categories: [],

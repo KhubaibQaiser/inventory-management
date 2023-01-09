@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useInventoriesActions} from '../../../../../data/store/modules';
+import {useInventoriesActions} from '@store/modules';
 import {iUseInventoryStateParams} from './types';
 
 const useInventoryState = ({

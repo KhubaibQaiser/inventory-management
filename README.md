@@ -58,8 +58,9 @@ Make changes in the code, save and see them reflected on your simulator/emulator
 
 - React Native CLI
 - TypeScript
-- React Navigation
-- React Native Paper
+- [React Navigation](https://reactnavigation.org/)
+- [React Native Paper](https://reactnativepaper.com/)
+- [React Native Date Picker](https://www.npmjs.com/package/react-native-date-picker)
 - Redux
 - Redux Persist
 - Redux Toolkit
@@ -68,11 +69,11 @@ Make changes in the code, save and see them reflected on your simulator/emulator
 
 #### User Stories
 
-- Pick one attribute as the title.
-- Render all machines group by their category on one screen.
+- ~~Pick one attribute as the title.~~
+- Render all items group by their category on one screen.
 - Make design responsive to support mobile phone and tablet.
-- There is a lot fo room for user interface improvement.
+- Improve UI.
 
 #### Technical Debts
 
-- Make routes typed. So that we can have strongly typed query params and navigation.
+- ~~Make routes typed. So that we can have strongly typed query params and navigation.~~

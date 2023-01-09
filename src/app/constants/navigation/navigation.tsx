@@ -2,8 +2,8 @@ import React, {FC} from 'react';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 
 import {AppRoute} from './routes';
-import {InventoriesScreen, CategoriesScreen} from '../../screens';
-import {useCategoriesRoutes} from '../../../data/store/modules';
+import {InventoriesScreen, CategoriesScreen} from '@screens/index';
+import {useCategoriesRoutes} from '@store/modules';
 import {iRootNavigatorParamList} from './types';
 
 const RootDrawer = createDrawerNavigator<iRootNavigatorParamList>();

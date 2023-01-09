@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {Text} from 'react-native-paper';
-import {globalStyles} from '../../styles/global.styles';
+import {globalStyles} from '@styles/global.styles';
 
 const EmptyListMessage: React.VFC = () => {
   return (

@@ -1,8 +1,5 @@
 import * as React from 'react';
-import {
-  useCategoriesActions,
-  useCategoryIdsList,
-} from '../../../data/store/modules';
+import {useCategoriesActions, useCategoryIdsList} from '@store/modules';
 
 const useCategoriesState = () => {
   const categoryIds = useCategoryIdsList();

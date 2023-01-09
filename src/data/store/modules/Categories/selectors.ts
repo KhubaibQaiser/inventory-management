@@ -1,6 +1,6 @@
 import {useSelector, shallowEqual} from 'react-redux';
 import {iCategory, iCategoriesState, iAttribute} from './types';
-import {AppStateType} from '../../store';
+import {AppStateType} from '@store/store';
 
 const selfStateSelector = (state: AppStateType): iCategoriesState =>
   state['categories-state'];

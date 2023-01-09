@@ -5,7 +5,7 @@ import {
   iAttribute,
   useCategoriesActions,
   useCategoryTitleAttribute,
-} from '../../../../../../../data/store/modules';
+} from '@store/modules';
 
 const useTitleFieldButtonState = ({
   categoryId,

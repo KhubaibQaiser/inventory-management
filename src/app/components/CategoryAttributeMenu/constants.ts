@@ -1,5 +1,5 @@
 import {iCategoryAttributeItem} from './types';
-import {AttributeEnum} from '../../../data/store/modules';
+import {AttributeEnum} from '@store/modules';
 
 export const AttributeTypeOptions: iCategoryAttributeItem[] = [
   {key: 'TEXT', value: AttributeEnum.TEXT},

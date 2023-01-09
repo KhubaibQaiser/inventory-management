@@ -1,4 +1,4 @@
-import {iCategory} from '../Categories';
+import {iCategory} from '@store/modules/Categories';
 
 export interface iInventory {
   id: string;

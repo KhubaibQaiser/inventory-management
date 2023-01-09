@@ -5,8 +5,8 @@ import {
   InventoryAttributeValueType,
   iInventoryAttribute,
 } from './types';
-import {AppStateType} from '../../store';
-import {iCategory, useCategoryTitleAttribute} from '../Categories';
+import {AppStateType} from '@store/store';
+import {iCategory, useCategoryTitleAttribute} from '@store/modules/Categories';
 import {useMemo} from 'react';
 
 const selfStateSelector = (state: AppStateType): iInventoriesState =>
@@ -27,7 +27,8 @@ export const useInventoriesIdsListByCategoryId = (
 ): iInventory['id'][] => {
   const inventories = useSelector(selfStateSelector, shallowEqual);
   const inventoryIds = useMemo(
-    () => inventories[categoryId].map(inv => inv.id),
+    () =>
+      inventories[categoryId] ? inventories[categoryId].map(inv => inv.id) : [],
     [inventories, categoryId],
   );
   if (!categoryId) {

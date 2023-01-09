@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {iCategoryAttributeButtonProps} from './types';
-import {AttributeEnum} from '../../../data/store/modules';
+import {AttributeEnum} from '@store/modules';
 import {Text} from 'react-native-paper';
 import {styles} from './styles';
 import {View, TouchableOpacity} from 'react-native';

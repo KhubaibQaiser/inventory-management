@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {View} from 'react-native';
-import {globalStyles} from '../../../../../../styles/global.styles';
+import {globalStyles} from '@styles/global.styles';
 import {Button, Menu} from 'react-native-paper';
 import useTitleFieldButtonState from './useTitleFieldButtonState';
 import {iTitleFieldButtonProps} from './types';

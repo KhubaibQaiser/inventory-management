@@ -1,4 +1,11 @@
-import {iCategory} from '../../../../../../../data/store/modules';
+import {iCategory, iAttribute} from '@store/modules';
+
+export interface iCategoryAttributeProps {
+  attribute: iAttribute;
+  index: number;
+  onChange: iAttributeChangeHandler;
+  onRemove: iRemoveAttributeHandler;
+}
 
 export interface iCategoryAttributesProps {
   categoryId: iCategory['id'];
@@ -7,3 +14,9 @@ export interface iCategoryAttributesProps {
 
 export interface iUseCategoryAttributesParams
   extends iCategoryAttributesProps {}
+
+export type iAttributeChangeHandler = (
+  attributeIndex: number,
+  attribute: iAttribute,
+) => void;
+export type iRemoveAttributeHandler = (attributeIndex: number) => void;

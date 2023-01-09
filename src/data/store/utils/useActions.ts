@@ -1,10 +1,10 @@
-import { ActionCreatorsMapObject, bindActionCreators } from "redux";
-import { useDispatch } from "react-redux";
-import { useMemo } from "react";
+import {ActionCreatorsMapObject, bindActionCreators} from 'redux';
+import {useDispatch} from 'react-redux';
+import {useMemo} from 'react';
 
-const useActions = <T extends ActionCreatorsMapObject>(
+export const useActions = <T extends ActionCreatorsMapObject>(
   actions: T,
-  deps?: Array<any>
+  deps?: Array<any>,
 ): T => {
   const dispatch = useDispatch();
   return useMemo(
@@ -12,7 +12,7 @@ const useActions = <T extends ActionCreatorsMapObject>(
       return bindActionCreators<T, T>(actions, dispatch);
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    deps ? [dispatch, ...deps] : [dispatch]
+    deps ? [dispatch, ...deps] : [dispatch],
   );
 };
 

@@ -1,9 +1,6 @@
 import * as React from 'react';
 import {iUseCategoryTitleParams} from './types';
-import {
-  useCategoryTitle,
-  useCategoriesActions,
-} from '../../../../../../../data/store/modules';
+import {useCategoryTitle, useCategoriesActions} from '@store/modules';
 
 const useCategoryTitleState = ({
   categoryId,

@@ -2,7 +2,7 @@ import * as React from 'react';
 import {
   useInventoriesActions,
   useInventoriesIdsListByCategoryId,
-} from '../../../data/store/modules';
+} from '@store/modules';
 import {FlatList} from 'react-native';
 import {iUseInventoriesStateParams} from './types';
 

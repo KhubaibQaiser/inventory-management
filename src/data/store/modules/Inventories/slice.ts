@@ -5,8 +5,7 @@ import {
   iChangeInventoryAttributePayload,
   iRemoveInventoryPayload,
 } from './types';
-import useActions from '../../utils/useActions';
-import {generateUuid} from '../../utils/string.utils';
+import {useActions, generateUuid} from '@store/utils';
 
 const initialInventoriesState: iInventoriesState = {
   // 'd9142342-7fa1-41cb-ad74-9dbaa943e8f1': [

@@ -3,7 +3,7 @@ import {
   useInventoriesActions,
   useCategoryAttributes,
   useInventoryAttributes,
-} from '../../../../../../../data/store/modules';
+} from '@store/modules';
 import {
   iUseInventoryAttributesStateParams,
   iInventoryAttributeChangeHandler,

@@ -1,10 +1,10 @@
 import * as React from 'react';
 import {FlatList, ListRenderItem} from 'react-native';
-import {iCategory} from '../../../data/store/modules';
+import {iCategory} from '@store/modules';
 import {Category} from './components';
-import {AddButton, Container, EmptyListMessage} from '../../components';
+import {AddButton, Container, EmptyListMessage} from '@components/index';
 import useCategoriesState from './useCategoriesState';
-import {globalStyles} from '../../styles/global.styles';
+import {globalStyles} from '@styles/global.styles';
 
 const CategoriesScreen = () => {
   const {categoryIds, onAddCategory} = useCategoriesState();
