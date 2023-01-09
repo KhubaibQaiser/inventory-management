@@ -1,58 +1,33 @@
 import * as React from 'react';
 import {Button, Card} from 'react-native-paper';
-import {
-  iInventoryComponentProp,
-  iInventoryAttributeChangeHandler,
-} from './types';
-import InventoryAttribute from './InventoryAttribute';
-import {Input} from '../../../../components';
+import {iInventoryComponentProp} from './types';
 import {globalStyles} from '../../../../styles/global.styles';
+import {InventoryTitle, InventoryAttributes} from './components';
+import useInventoryState from './useInventoryState';
 
 const Inventory: React.VFC<iInventoryComponentProp> = ({
-  category,
-  inventory,
-  onChange,
-  onRemove,
+  categoryId,
+  inventoryId,
+  inventoryIndex,
 }) => {
-  const handleAttributeChange: iInventoryAttributeChangeHandler =
-    React.useCallback(
-      (attributeId, value) => {
-        onChange({
-          ...inventory,
-          attributes: {...inventory.attributes, [attributeId]: value},
-        });
-      },
-      [onChange, inventory],
-    );
-
-  const handleTitleChange = React.useCallback(
-    (title: string) => {
-      onChange({...inventory, title});
-    },
-    [onChange, inventory],
-  );
+  const {handleRemoveInventory} = useInventoryState({
+    inventoryIndex,
+    categoryId,
+  });
 
   return (
     <Card style={[globalStyles.mb16, globalStyles.cardContainer]}>
-      <Input
-        label={'Title'}
-        value={inventory.title}
-        onChangeText={handleTitleChange}
-        style={globalStyles.mb8}
+      <InventoryTitle categoryId={categoryId} inventoryId={inventoryId} />
+      <InventoryAttributes
+        categoryId={categoryId}
+        inventoryId={inventoryId}
+        inventoryIndex={inventoryIndex}
       />
-      {category.attributes.map(attr => (
-        <InventoryAttribute
-          key={attr.id}
-          attribute={attr}
-          value={inventory.attributes[attr.id]}
-          onChange={handleAttributeChange}
-        />
-      ))}
       <Button
         icon="delete"
         mode="contained"
         style={globalStyles.mt8}
-        onPress={onRemove}>
+        onPress={handleRemoveInventory}>
         Remove
       </Button>
     </Card>

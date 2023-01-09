@@ -24,7 +24,7 @@ const store = configureStore({
       key: 'root',
       version: 1,
       storage: AsyncStorage,
-      // blacklist: [InventoriesState.name],
+      // blacklist: [CategoriesState.name],
     },
     RootReducer,
   ),

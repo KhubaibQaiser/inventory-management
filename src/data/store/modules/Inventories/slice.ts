@@ -2,7 +2,7 @@ import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {
   iInventoriesState,
   iAddInventoryPayload,
-  iChangeInventoryPayload,
+  iChangeInventoryAttributePayload,
   iRemoveInventoryPayload,
 } from './types';
 import useActions from '../../utils/useActions';
@@ -14,7 +14,7 @@ const initialInventoriesState: iInventoriesState = {
   //     id: 'hello-inventory-id',
   //     categoryId: 'd9142342-7fa1-41cb-ad74-9dbaa943e8f1',
   //     title: 'Civic',
-  //     attributes: [],
+  //     attributes: {},
   //   },
   // ],
 };
@@ -40,11 +40,13 @@ export const InventoriesState = createSlice({
         },
       ];
     },
-    changeInventory: (
+    changeInventoryAttribute: (
       state,
-      {payload: {index, inventory}}: PayloadAction<iChangeInventoryPayload>,
+      {
+        payload: {categoryId, inventoryIndex, attributeId, value},
+      }: PayloadAction<iChangeInventoryAttributePayload>,
     ) => {
-      state[inventory.categoryId][index] = inventory;
+      state[categoryId][inventoryIndex].attributes[attributeId] = value;
     },
     removeInventory: (
       state,

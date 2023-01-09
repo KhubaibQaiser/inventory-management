@@ -2,10 +2,12 @@ export interface iCategoriesState {
   categories: iCategory[];
 }
 
+export type CategoryTitleAttributeId = string;
+
 export interface iCategory {
   id: string;
   title: string;
-  titleAttribute: string;
+  titleAttributeId: CategoryTitleAttributeId;
   attributes: iAttribute[];
 }
 
@@ -29,8 +31,13 @@ export interface iUpdateCategoryPayload {
   index: number;
 }
 
+export interface iChangeCategoryTitlePayload {
+  categoryIndex: number;
+  title: string;
+}
+
 export interface iRemoveCategoryPayload {
-  category: iCategory;
+  categoryIndex: number;
 }
 
 export interface iAddAttributePayload {
@@ -39,5 +46,16 @@ export interface iAddAttributePayload {
 
 export interface iRemoveAttributePayload {
   categoryIndex: number;
+  attributeIndex: number;
+}
+
+export interface iChangeAttributePayload {
+  categoryIndex: number;
+  attributeIndex: number;
   attribute: iAttribute;
+}
+
+export interface iSetTitleAttributeIdPayload {
+  categoryIndex: number;
+  attributeId: iAttribute['id'];
 }

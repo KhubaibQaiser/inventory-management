@@ -4,44 +4,26 @@ import {iCategory} from '../../../data/store/modules';
 import {Category} from './components';
 import {AddButton, Container, EmptyListMessage} from '../../components';
 import useCategoriesState from './useCategoriesState';
+import {globalStyles} from '../../styles/global.styles';
 
 const CategoriesScreen = () => {
-  const {
-    categories,
-    onAddCategory,
-    onRemoveCategory,
-    onUpdateCategory,
-    onAddCategoryAttribute,
-    onRemoveCategoryAttribute,
-  } = useCategoriesState();
+  const {categoryIds, onAddCategory} = useCategoriesState();
 
-  const renderItem: ListRenderItem<iCategory> = React.useCallback(
+  const renderItem: ListRenderItem<iCategory['id']> = React.useCallback(
     ({item, index}) => {
-      return (
-        <Category
-          category={item}
-          onChange={onUpdateCategory(index)}
-          onRemoveCategory={onRemoveCategory}
-          onAddAttribute={onAddCategoryAttribute(index)}
-          onRemoveAttribute={onRemoveCategoryAttribute(index)}
-        />
-      );
+      return <Category categoryId={item} categoryIndex={index} />;
     },
-    [
-      onUpdateCategory,
-      onAddCategoryAttribute,
-      onRemoveCategoryAttribute,
-      onRemoveCategory,
-    ],
+    [],
   );
 
   return (
     <Container>
       <FlatList
-        data={categories}
+        data={categoryIds}
         renderItem={renderItem}
         ListEmptyComponent={<EmptyListMessage />}
-        keyExtractor={item => item.id}
+        keyExtractor={item => item}
+        contentContainerStyle={globalStyles.fabPadding}
       />
       <AddButton onPress={onAddCategory} />
     </Container>

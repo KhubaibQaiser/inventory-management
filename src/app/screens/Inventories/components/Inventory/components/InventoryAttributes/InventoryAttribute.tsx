@@ -3,9 +3,9 @@ import {iInventoryUIAttributeProps} from './types';
 import {View, TouchableOpacity} from 'react-native';
 import {Switch, Text} from 'react-native-paper';
 import DatePicker from 'react-native-date-picker';
-import {styles} from './styles';
-import {Input} from '../../../../components';
-import {globalStyles} from '../../../../styles/global.styles';
+import {styles} from '../../styles';
+import {Input} from '../../../../../../components';
+import {globalStyles} from '../../../../../../styles/global.styles';
 
 const InventoryAttribute: React.VFC<iInventoryUIAttributeProps> = ({
   attribute,

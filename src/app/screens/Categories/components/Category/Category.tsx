@@ -1,84 +1,45 @@
 import * as React from 'react';
-import {Card, Button, Text, IconButton} from 'react-native-paper';
-import {iCategoryProps, iAttributeChangeHandler} from './types';
+import {Card, Button} from 'react-native-paper';
+import {iCategoryProps} from './types';
 import {View} from 'react-native';
-import CategoryAttribute from './CategoryAttribute';
 import {globalStyles} from '../../../../styles/global.styles';
-import {Input} from '../../../../components';
+import {
+  CategoryTitle,
+  CategoryAttributes,
+  TitleFieldButton,
+} from './components';
+import useCategoryState from './useCategoryState';
 
-const Category: React.VFC<iCategoryProps> = ({
-  category,
-  onChange,
-  onRemoveCategory,
-  onAddAttribute,
-  onRemoveAttribute,
-}) => {
-  const handleAddField = React.useCallback(() => {
-    onAddAttribute();
-  }, [onAddAttribute]);
-
-  const handleAttributeChange: iAttributeChangeHandler = React.useCallback(
-    attribute => {
-      onChange({
-        ...category,
-        attributes: category.attributes.map(attr => {
-          if (attr.id === attribute.id) {
-            return attribute;
-          }
-          return attr;
-        }),
-      });
-    },
-    [onChange, category],
-  );
-
-  const handleTitleChange = React.useCallback(
-    (title: string) => {
-      onChange({...category, title});
-    },
-    [onChange, category],
-  );
-
-  const handleRemoveCategory = React.useCallback(() => {
-    onRemoveCategory(category);
-  }, [onRemoveCategory, category]);
+const Category: React.VFC<iCategoryProps> = ({categoryId, categoryIndex}) => {
+  const {handleAddField, handleRemoveCategory} = useCategoryState({
+    categoryId,
+    categoryIndex,
+  });
 
   return (
     <Card style={[globalStyles.mb16, globalStyles.cardContainer]}>
-      <View
-        style={[
-          globalStyles.row,
-          globalStyles.justifySpaceBetween,
-          globalStyles.itemsCenter,
-        ]}>
-        <Text style={[globalStyles.mr8, globalStyles.labelText]}>
-          {category.title}
-        </Text>
-        <IconButton icon="delete" onPress={handleRemoveCategory} />
-      </View>
-
-      <Input
-        label="Title"
-        value={category.title}
-        onChangeText={handleTitleChange}
-        style={globalStyles.mb8}
+      <CategoryTitle categoryId={categoryId} categoryIndex={categoryIndex} />
+      <CategoryAttributes
+        categoryId={categoryId}
+        categoryIndex={categoryIndex}
       />
-      {category.attributes.map(attr => {
-        return (
-          <CategoryAttribute
-            key={attr.id}
-            attribute={attr}
-            onChange={handleAttributeChange}
-            onRemove={onRemoveAttribute}
-          />
-        );
-      })}
-      <View>
+      <View style={[globalStyles.col, globalStyles.mt8]}>
+        <TitleFieldButton
+          categoryId={categoryId}
+          categoryIndex={categoryIndex}
+        />
         <Button
           mode="contained"
           onPress={handleAddField}
           style={[globalStyles.flex1, globalStyles.mt8]}>
           Add New Field
+        </Button>
+        <Button
+          mode="contained"
+          color="red"
+          onPress={handleRemoveCategory}
+          style={[globalStyles.mt8, globalStyles.bgDanger]}>
+          Delete Category
         </Button>
       </View>
     </Card>

@@ -1,13 +1,14 @@
 import * as React from 'react';
-import {Menu, Card} from 'react-native-paper';
+import {Menu} from 'react-native-paper';
 import {iCategoryAttributeMenuProps} from './types';
 import {AttributeTypeOptions} from './constants';
 import {AttributeType} from '../../../data/store/modules';
+import {View} from 'react-native';
+import {globalStyles} from '../../styles/global.styles';
 
 const CategoryAttributeMenu: React.VFC<iCategoryAttributeMenuProps> = ({
   anchor,
   visible = false,
-  style,
   onSelect,
   onDismiss,
 }) => {
@@ -20,7 +21,7 @@ const CategoryAttributeMenu: React.VFC<iCategoryAttributeMenuProps> = ({
   );
 
   return (
-    <Card style={style}>
+    <View style={[globalStyles.justifyCenter]}>
       <Menu
         visible={visible}
         onDismiss={onDismiss}
@@ -34,7 +35,7 @@ const CategoryAttributeMenu: React.VFC<iCategoryAttributeMenuProps> = ({
           />
         ))}
       </Menu>
-    </Card>
+    </View>
   );
 };
 

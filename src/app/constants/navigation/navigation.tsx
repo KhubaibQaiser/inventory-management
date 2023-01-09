@@ -3,13 +3,13 @@ import {createDrawerNavigator} from '@react-navigation/drawer';
 
 import {AppRoute} from './routes';
 import {InventoriesScreen, CategoriesScreen} from '../../screens';
-import {useCategoriesList} from '../../../data/store/modules';
+import {useCategoriesRoutes} from '../../../data/store/modules';
 import {iRootNavigatorParamList} from './types';
 
 const RootDrawer = createDrawerNavigator<iRootNavigatorParamList>();
 
 const RootNavigator: FC = () => {
-  const categories = useCategoriesList();
+  const categories = useCategoriesRoutes();
 
   return (
     <RootDrawer.Navigator>

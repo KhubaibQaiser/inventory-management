@@ -1,57 +1,34 @@
 import * as React from 'react';
 import {useRoute} from '@react-navigation/native';
 import {
-  useCategoryById,
-  useInventoriesByCategoryId,
   useInventoriesActions,
+  useInventoriesIdsListByCategoryId,
 } from '../../../data/store/modules';
 import {FlatList} from 'react-native';
-import {iInventoryChangeHandler} from './components';
 
 const useInventoriesState = () => {
   const {params} = useRoute();
-  const category = useCategoryById(params?.categoryId);
-  const inventories = useInventoriesByCategoryId(category?.id);
+  const categoryId = params?.categoryId as string;
+  const inventoryIds = useInventoriesIdsListByCategoryId(categoryId);
   const listRef = React.useRef<FlatList>(null);
 
-  const {addInventory, changeInventory, removeInventory} =
-    useInventoriesActions();
+  const {addInventory} = useInventoriesActions();
 
   const onAddInventory = React.useCallback(() => {
-    if (!category) {
+    if (!categoryId) {
       return;
     }
-    addInventory({categoryId: category.id});
+    addInventory({categoryId});
     setTimeout(() => {
       listRef.current?.scrollToEnd();
     }, 0);
-  }, [category, addInventory]);
-
-  const onChangeInventory = React.useCallback(
-    (inventoryIndex: number): iInventoryChangeHandler =>
-      inventory => {
-        changeInventory({index: inventoryIndex, inventory});
-      },
-    [changeInventory],
-  );
-
-  const onRemoveInventory = React.useCallback(
-    (index: number) => () => {
-      if (!category) {
-        return;
-      }
-      removeInventory({categoryId: category.id, index});
-    },
-    [category, removeInventory],
-  );
+  }, [categoryId, addInventory]);
 
   return {
-    category,
-    inventories,
+    categoryId,
+    inventoryIds,
     listRef,
     onAddInventory,
-    onChangeInventory,
-    onRemoveInventory,
   };
 };
 

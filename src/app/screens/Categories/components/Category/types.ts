@@ -1,22 +1,25 @@
 import {iCategory, iAttribute} from '../../../../../data/store/modules';
 
 export interface iCategoryProps {
-  category: iCategory;
-  onChange: iChangeCategoryHandler;
-  onRemoveCategory: iRemoveCategoryHandler;
-  onAddAttribute: iAddAttributeHandler;
-  onRemoveAttribute: iRemoveAttributeHandler;
+  categoryId: iCategory['id'];
+  categoryIndex: number;
 }
 
-export type iRemoveCategoryHandler = (category: iCategory) => void;
+export interface iUseCategoryParams extends iCategoryProps {}
+
+export type iRemoveCategoryHandler = (categoryIndex: number) => void;
 export type iChangeCategoryHandler = (category: iCategory) => void;
 export type iAddAttributeHandler = () => void;
 
 export interface iCategoryAttributeProps {
   attribute: iAttribute;
+  index: number;
   onChange: iAttributeChangeHandler;
   onRemove: iRemoveAttributeHandler;
 }
 
-export type iAttributeChangeHandler = (attribute: iAttribute) => void;
-export type iRemoveAttributeHandler = (attr: iAttribute) => void;
+export type iAttributeChangeHandler = (
+  attributeIndex: number,
+  attribute: iAttribute,
+) => void;
+export type iRemoveAttributeHandler = (attributeIndex: number) => void;

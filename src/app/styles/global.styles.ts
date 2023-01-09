@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import {ThemeColors} from './theme';
 
 export const globalStyles = StyleSheet.create({
   cardContainer: {
@@ -11,14 +12,23 @@ export const globalStyles = StyleSheet.create({
   row: {
     flexDirection: 'row',
   },
+  col: {
+    flexDirection: 'column',
+  },
   flex1: {
     flex: 1,
   },
   justifySpaceBetween: {
     justifyContent: 'space-between',
   },
+  justifyCenter: {
+    justifyContent: 'center',
+  },
   itemsCenter: {
     alignItems: 'center',
+  },
+  selfCenter: {
+    alignSelf: 'center',
   },
   mb8: {
     marginBottom: 8,
@@ -48,5 +58,11 @@ export const globalStyles = StyleSheet.create({
   captionText: {
     fontSize: 16,
     fontWeight: '600',
+  },
+  bgDanger: {
+    backgroundColor: ThemeColors.red600,
+  },
+  fabPadding: {
+    paddingBottom: 40,
   },
 });

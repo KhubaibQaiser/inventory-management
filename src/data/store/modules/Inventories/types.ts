@@ -22,12 +22,14 @@ export interface iAddInventoryPayload {
   categoryId: iCategory['id'];
 }
 
-export interface iChangeInventoryPayload {
-  index: number;
-  inventory: iInventory;
-}
-
 export interface iRemoveInventoryPayload {
   categoryId: iCategory['id'];
   index: number;
+}
+
+export interface iChangeInventoryAttributePayload {
+  categoryId: iCategory['id'];
+  inventoryIndex: number;
+  attributeId: string;
+  value: InventoryAttributeValueType;
 }
