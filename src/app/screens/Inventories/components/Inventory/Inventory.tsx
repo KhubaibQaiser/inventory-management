@@ -24,11 +24,10 @@ const Inventory: React.VFC<iInventoryComponentProp> = ({
         inventoryIndex={inventoryIndex}
       />
       <Button
-        icon="delete"
         mode="contained"
-        style={globalStyles.mt8}
+        style={[globalStyles.mt8, globalStyles.bgDanger]}
         onPress={handleRemoveInventory}>
-        Remove
+        Delete
       </Button>
     </Card>
   );
